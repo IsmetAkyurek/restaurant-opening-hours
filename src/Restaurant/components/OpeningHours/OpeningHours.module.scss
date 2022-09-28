@@ -1,0 +1,54 @@
+@import "Core/styles/variables.scss";
+@import "Core/styles/mixins.scss";
+
+.container {
+  transform-origin: top;
+  animation       : .5s linear slideIn;
+
+  h3 {
+    padding-bottom: 10px;
+    border-bottom : 1px solid $color-black;
+    @include flex(center);
+
+    svg {
+      margin-right: 8px;
+      color       : $color-grey3;
+    }
+  }
+
+  ul {
+
+    li {
+      font-weight: 500;
+      padding    : 8px;
+      gap        : 8px;
+      transition : all .2s;
+      @include flex(center);
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-grey2;
+      }
+
+      &:hover {
+        background-color: rgba($color-primary, 0.05);
+      }
+
+      .today {
+        line-height   : 1;
+        font-size     : 12px;
+        font-weight   : bold;
+        text-transform: uppercase;
+        color         : $color-green;
+      }
+
+      .hours {
+        font-weight: 400;
+        margin-left: auto;
+
+        .closed {
+          color: $color-grey3;
+        }
+      }
+    }
+  }
+}

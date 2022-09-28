@@ -1,0 +1,27 @@
+$color-black  : #202125;
+$color-white  : #FFFFFF;
+$color-green  : #5BCB02;
+$color-red    : #cb0202;
+$color-grey1  : #F8F8F8;
+$color-grey2  : #EEEEEE;
+$color-grey3  : #A1A2A4;
+$color-primary: #009DE0;
+$font-family  : 'Roboto',
+sans-serif;
+
+@keyframes slideIn {
+  0% {
+    opacity  : 0;
+    transform: scaleY(0);
+  }
+
+  40% {
+    opacity  : 0;
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity  : 1;
+    transform: scaleY(1);
+  }
+}

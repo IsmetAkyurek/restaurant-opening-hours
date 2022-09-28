@@ -1,0 +1,8 @@
+@import 'Core/styles/variables.scss';
+
+.container {
+  border-radius   : 8px;
+  padding         : 12px;
+  background-color: $color-white;
+  box-shadow      : rgba($color-black, 0.1) 0px 0px 16px;
+}

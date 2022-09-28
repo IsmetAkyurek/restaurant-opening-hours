@@ -1,0 +1,7 @@
+/build
+/node_modules
+.husky
+.git
+public
+**/*.test.ts
+**/*.test.tsx

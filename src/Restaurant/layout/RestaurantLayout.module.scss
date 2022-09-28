@@ -1,0 +1,28 @@
+@import "Core/styles/mixins.scss";
+
+.container {
+
+  .content {
+    z-index   : 410;
+    gap       : 16px;
+    width     : 400px;
+    transition: all .2s;
+    max-width : calc(100% - 40px);
+    @include flex(null, null, column);
+    @include absoluteCenter();
+
+    .logo {
+      height       : 40px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &.selected {
+
+    .content {
+      top      : 20px;
+      left     : 20px;
+      transform: none;
+    }
+  }
+}

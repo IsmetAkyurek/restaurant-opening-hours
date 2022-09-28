@@ -1,0 +1,88 @@
+@import "Core/styles/variables.scss";
+@import "Core/styles/mixins.scss";
+
+.container {
+  text-align: center;
+  position  : relative;
+
+  .box {
+    border-radius: 8px;
+    transition   : all .2s;
+    cursor       : pointer;
+    position     : relative;
+
+    button {
+      opacity         : 0;
+      font-size       : 12px;
+      border-radius   : 20px;
+      padding         : 4px 8px;
+      transition      : all .2s;
+      color           : $color-black;
+      background-color: $color-grey2;
+      transform       : translateY(-50%);
+      @include absolute(50%, 16px);
+    }
+
+    &:hover {
+      background-color: $color-grey1;
+
+      button {
+        opacity: 1;
+      }
+    }
+
+    svg {
+      @include absolute(16px, 16px);
+    }
+  }
+
+  .menu {
+    padding         : 0;
+    z-index         : 30;
+    transform-origin: top;
+    border-radius   : 8px;
+    overflow-y      : auto;
+    max-height      : 250px;
+    transition      : all .1s;
+    transform       : scaleY(0);
+    @include absolute(calc(100% + 4px), 0, null, 0);
+
+    ul {
+
+      li {
+        cursor    : pointer;
+        padding   : 8px 16px;
+        transition: all .2s;
+
+        &:hover {
+          background-color: rgba($color-grey2, 1);
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($color-black, 0.1);
+        }
+
+        &.selected {
+          font-weight     : bold;
+          background-color: rgba($color-primary, 0.1);
+        }
+      }
+    }
+  }
+
+  .arrow {
+    transform-origin: center;
+    transition      : all .2s;
+  }
+
+  &.visible {
+
+    .menu {
+      transform: scaleY(1);
+    }
+
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+}

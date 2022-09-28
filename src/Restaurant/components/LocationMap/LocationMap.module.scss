@@ -1,0 +1,12 @@
+@import "Core/styles/mixins.scss";
+@import url("https://unpkg.com/leaflet@1.9.1/dist/leaflet.css");
+
+.container {
+  overflow: hidden;
+  @include size(100%, 100vh);
+
+  .background {
+    object-fit: cover;
+    @include size(100%, 100%);
+  }
+}

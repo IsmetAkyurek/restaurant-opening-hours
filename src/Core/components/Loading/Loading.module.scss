@@ -1,0 +1,15 @@
+@import "Core/styles/variables.scss";
+@import "Core/styles/mixins.scss";
+
+.container {
+  position: relative;
+
+  .overlay {
+    font-size       : 2em;
+    z-index         : 1500;
+    color           : $color-primary;
+    background-color: rgba($color-white, 0.5);
+    @include flex(center, center);
+    @include absolute(0, 0, 0, 0);
+  }
+}

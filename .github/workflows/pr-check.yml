@@ -1,0 +1,110 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, run type-check, run lint, run tests and build the code
+
+name: PR Check
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  install:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn
+
+  typecheck:
+    name: TypeScript Type Check
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Run typecheck
+        run: yarn typecheck
+
+  lint:
+    name: Eslint Lint Check
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Run lint
+        run: yarn lint
+
+  test:
+    name: Jest Test Check
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Run tests
+        run: yarn test
+
+  build:
+    name: Build Check
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to branch
+        uses: actions/checkout@v3
+
+      - name: Prepare Node
+        uses: actions/setup-node@v3
+
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Build the application
+        run: yarn build

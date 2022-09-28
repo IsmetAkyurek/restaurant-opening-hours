@@ -1,0 +1,31 @@
+@import url("https://unpkg.com/leaflet@1.9.1/dist/leaflet.css");
+@import "Core/styles/variables.scss";
+@import "Core/styles/mixins.scss";
+
+.container {
+  @include size(100%, 100%);
+
+  .logo {
+    z-index: 900;
+    opacity: 0.2;
+    height : 40px;
+    @include absolute(null, 60px, 40px);
+  }
+
+  @include global {
+    .leaflet-tooltip {
+      border-radius   : 8px;
+      font-size       : 16px;
+      font-weight     : bold;
+      padding         : 6px 12px;
+      opacity         : 1 !important;
+      color           : $color-white;
+      border-color    : $color-primary;
+      background-color: $color-primary;
+
+      &::before {
+        border-left-color: $color-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "name": "wolt_assignment",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "precommit": "yarn typecheck && yarn lint && yarn test && yarn build",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@sentry/react": "^7.13.0",
+    "@sentry/tracing": "^7.13.0",
+    "axios": "^0.27.2",
+    "leaflet": "^1.9.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-leaflet": "^4.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^3.0.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/node-logger": "^6.5.12",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.0.3",
+    "@types/leaflet": "^1.8.0",
+    "@types/node": "^18.7.23",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-leaflet": "^2.8.2",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-storybook": "^0.6.4",
+    "husky": "^8.0.1",
+    "istanbul-badges-readme": "^1.8.2",
+    "prop-types": "^15.8.1",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-leaflet|@react-leaflet))"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/reportWebVitals.ts",
+      "!<rootDir>/node_modules/",
+      "!src/**/*.stories.{ts,tsx}"
+    ]
+  }
+}
